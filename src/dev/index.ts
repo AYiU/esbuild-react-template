@@ -1,3 +1,3 @@
-import useHMR from './useHMR';
+import useHMR from "./useHMR";
 
 export { useHMR };
