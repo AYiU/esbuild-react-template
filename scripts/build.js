@@ -1,4 +1,5 @@
 const esbuild = require('esbuild');
+const { sassPlugin } = require("esbuild-sass-plugin");
 const { config } = require('dotenv');
 const fse = require('fs-extra');
 
@@ -16,6 +17,7 @@ const build = async () => {
   }
   esbuild.build({
     entryPoints: ['src/index.tsx'],
+    plugins: [sassPlugin()],
     bundle: true,
     minify: true,
     define: clientEnv,

@@ -1,5 +1,6 @@
 const { spawn } = require("child_process");
 const esbuild = require("esbuild");
+const { sassPlugin } = require("esbuild-sass-plugin");
 const { createServer, request } = require("http");
 const { config } = require("dotenv");
 const handler = require("serve-handler");
@@ -35,6 +36,7 @@ const dev = async () => {
   esbuild
     .build({
       entryPoints: ["src/index.tsx"],
+      plugins: [sassPlugin()],
       bundle: true,
       minify: true,
       define: clientEnv,
